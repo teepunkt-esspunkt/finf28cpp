@@ -3,7 +3,6 @@
  * Programm zum entfernen aller Kommentare
  * Autor: Tarek Saleh
  * Datum: 26.10.2023
- *
  */
 
 #include <iostream>
