@@ -26,7 +26,7 @@ int main()
     }
     else
     {
-        cout << "Die Zeite Zahl darf keine 0 sein!";
+        cout << "Die Zweite Zahl darf keine 0 sein!";
     }
 
     return 0;
