@@ -1,0 +1,5 @@
+	// Leerzeile
+	Lieber Teilnehmer, //
+
+	jetzt ist Zeit fuer einen KAFFEE!
+	// Leerzeile
