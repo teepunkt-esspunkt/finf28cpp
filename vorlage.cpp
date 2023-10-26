@@ -1,8 +1,8 @@
 /*
  * name.cpp
- * Name des Programms
+ * Programm Bechreibung
  * Autor: Tarek Saleh
- * Datum: 25.10.2023
+ * Datum: xx
  * 
  */
 

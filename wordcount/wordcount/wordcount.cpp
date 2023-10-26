@@ -9,6 +9,9 @@
  * die nur aus den Zeichen a-z oder A-Z bestehen und mindestens zwei Zeichen
  * lang sind.
  *
+ * text.txt neben der exe erstellen
+ * cmd befehl in dem ordner indem sich die exe und die txt befindet
+ * wordcount.exe < text.txt > ergebnis.txt
  */
 
 #include <iostream>
