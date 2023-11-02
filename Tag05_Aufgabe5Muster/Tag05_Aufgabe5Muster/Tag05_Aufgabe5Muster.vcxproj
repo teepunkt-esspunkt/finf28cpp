@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{6f227f1e-9c8a-4ec9-93ea-6ea7e1c30607}</ProjectGuid>
-    <RootNamespace>ball2</RootNamespace>
+    <ProjectGuid>{10b05afe-c21c-4dda-8177-d83db1b3db83}</ProjectGuid>
+    <RootNamespace>Tag05Aufgabe5Muster</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -127,7 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="ball2.cpp" />
+    <ClCompile Include="Tag05_Aufgabe5Muster.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

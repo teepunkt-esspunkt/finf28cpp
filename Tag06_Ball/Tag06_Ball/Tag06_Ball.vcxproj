@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{b251391d-d8d3-46a1-8c8b-5af394381835}</ProjectGuid>
-    <RootNamespace>makros</RootNamespace>
+    <ProjectGuid>{af6bac79-7a32-4f25-bc08-5806ecb793ca}</ProjectGuid>
+    <RootNamespace>Tag06Ball</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -127,11 +127,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="myMakros.h" />
+    <ClCompile Include="Tag06_Ball.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="kreis.cpp" />
+    <ClInclude Include="ball.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

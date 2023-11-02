@@ -25,5 +25,10 @@ Wert von x: 80
 (/ == 8.0) = true
 (x == 8.0) = true
 
+/* Ausgabe
+
+Wert von x : 8
+(8 == 8.0) = true
+(x == 8.0) = false
 
 */

@@ -1,14 +1,14 @@
 #pragma once
 
-#define HEADER "SPRINGENDER BALL"
-#define BODEN  "------------------------------------------------------------------------------"
+#define HEADER "	SPRINGENDER BALL"
+#define BODEN "--------------------------------------------------------------------------------"
 
-#define CLS (cout << "\033[2J")		// Bildschirm löschen
+#define CLS (cout << "\033[2J")		// Bildschirm löschen 033 (oktal) anstelle von ESC (Escape)
 
-// Parametrisiertes Makro (also mit Parameter-Übergabe, hier "zeile" und "spalte")
-
+// Curso in Zeile zeile und Spalte spalte positionieren
 #define LOCATE(zeile,spalte) (cout << "\033["<< zeile <<';'<< spalte <<'H')
-// Cursor in Zeile zeile und Spalte spalte positionieren: \033[zeile;spalteH
+
+#define LOCATE2(zeile2,spalte2) (cout << "\033["<< zeile2 <<';'<< spalte2 <<'H')
 
 // Die Funktion hidecursor verhindert, dass der Cursor am linken
 // Bildschirmrand zu sehen ist und mit dem Ball auf und ab springt.
