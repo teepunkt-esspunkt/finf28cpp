@@ -1,8 +1,8 @@
 /*
  * swap.cpp
- * Rekursive Text Umkehrung (RekTUm)
- * Autor: Tarek Saleh
- * Datum: 6.6.2023
+ * Rekursive Text-Umkehrung
+ * Autor: Ralf Sasse
+ * Datum: 06.11.2023 (FINF28 / Tag 9)
  *
  */
 
@@ -20,23 +20,19 @@ int main()
     cout << ausgabe << endl;
 
     return 0;
-
 }
 
 string swap(string text)
 {
-    if (text.length() == 0)   // Abbruch Kriterium / Rekursions-Ende
+    if (text.length() == 0)     // Abbruch-Kriterium / Rekursions-Ende
     {
         return text;
     }
-    else        // Rekursions-Schritt
+    else                        // Rekursions-Schritt
     {
-        char erstesZeichen = text[0];           // erste Zeichen "merken"
-        string restlicheZeichen = text.substr(1); // restliche Zeichen abschneiden
+        char erstesZeichen = text[0];               // erste Zeichen "merken"
+        string restlicheZeichen = text.substr(1);   // restliche Zeichen "abschneiden"
         string ergebnis = swap(restlicheZeichen);
         return ergebnis + erstesZeichen;
-
-
     }
-
 }

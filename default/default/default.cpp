@@ -1,33 +1,32 @@
 /*
- * default.cpp
- * Programm Bechreibung
- * Autor: Tarek Saleh
- * Datum: 6.11.2023
+ * inline.cpp
+ * Definition von inline-Funktionen
+ * Autor: Ralf Sasse
+ * Datum: 06.11.2023 (FINF28 / Tag 9)
  *
  */
 
 #include <iostream>
+#include <iomanip>
 using namespace std;
 
-void ausgabe(int a = 1, int b = 2, int c = 3, int d = 4);   // Prototyp
+inline int flaeche(int laenge, int breite);        // Prototyp
 
 int main()
 {
-    ausgabe();
-    ausgabe(42);
-    ausgabe(42, 137);
-    ausgabe(42, 137, 2023);
-    ausgabe(42, 137, 2023, 4711);
+    int x = 3, y = 8, ergebnis;
+
+    ergebnis = flaeche(x, y);
+
+    cout << "Die Flaeche des Rechtecks"
+        << " mit der Breite " << setw(4) << x
+        << " und der Laenge " << setw(4) << y
+        << " betraegt " << setw(4) << ergebnis << endl;
 
     return 0;
-
 }
 
-
-void ausgabe(int a, int b, int c, int d)        // Funktions Definition OHNE Default Werte
+inline int flaeche(int laenge, int breite)
 {
-    cout << "a = " << a << endl;
-    cout << "b = " << b << endl;
-    cout << "c = " << c << endl;
-    cout << "d = " << d << endl << endl;
+    return (laenge * breite);
 }
