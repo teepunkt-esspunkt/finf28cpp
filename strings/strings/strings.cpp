@@ -35,14 +35,23 @@ int main()
     cout << text << endl;
     cout << cstring << endl;
 
-    cout << s1.size() << endl;
+    if (s1 == s2)
+        cout << "Beide Strings sind gleich!" << endl;
+    else if (s1 < s2)
+        cout << "Der erste String ist kleiner!" << endl;
+    else
+        cout << "Der erste String ist groesser!" << endl;
+
+    if (s1.compare(s2) != 0)
+        cout << s1 << " ist nicht " << s2 << endl;
+
+    cout << s1.length() << endl;        // Die Methoden length und size sind gleichbedeutend
     cout << s2.size() << endl;
     cout << linie.size() << endl;
     cout << linie2.size() << endl;
     cout << text.size() << endl;
     //  cout << cstring.size() << endl;     // geht nicht, denn cstring ist kein Objekt der Klasse string,
                                             // sondern ein Array aus char-Variablen, wie in C üblich.
-
 
     string s3 = s1 + " " + s2;          // Verknüpfung von Strings
     s3 += "!";                          // "Hallo Welt!"
@@ -66,9 +75,9 @@ int main()
     // dritter Parameter: Ersatztext)
     cout << s3 << endl;                 // "Hallo Geld!"
 
-    int position = s3.find("Geld");     // Suchen eines Teilstrings in einem größeren String
+    int position = s3.find("Hallo");     // Suchen eines Teilstrings in einem größeren String
 
-    cout << "Der String \"Geld\" wurde an Position " << position << " gefunden!" << endl;
+    cout << "Der String \"Hallo\" wurde an Position " << position << " gefunden!" << endl;
 
     char c = s3[6];
 
@@ -105,6 +114,10 @@ int main()
     {
         cout << s3.at(i) << " ";
     }
+    cout << endl;
+
+    reverse(s3.begin(), s3.end());      // Funktion zum umdrehen eines Strings - KEINE Methode der Klasse string!
+    cout << s3 << endl;
 
     return 0;
 }
