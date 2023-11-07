@@ -20,18 +20,27 @@
 using namespace std;
 
 void swapp(int*, int*); // Prototyp von swapp() mit Zeigern
+void swapp(int&, int&);
 
 int main()
 {
     int x = 42;
     int y = 137;
 
+    cout << "1." << endl;
     cout << "x und y vor dem Tauschen:  "
         << x << "   " << y << endl;
 
     swapp(&x, &y);            // Version mit Zeigern aufrufen.
 
     cout << "x und y nach dem Tauschen: "
+        << x << "   " << y << endl;
+
+    cout << "2." << endl;
+    cout << "x und y vor dem zweiten Tauschen:  "
+        << x << "   " << y << endl;
+    swapp(x, y);
+    cout << "x und y nach dem zweiten Tauschen: "
         << x << "   " << y << endl;
 
     return 0;
@@ -42,9 +51,16 @@ int main()
 
 void swapp(int* p1, int* p2)
 {
-    int* temp;              // Hilfsvariable 
+    int temp;              // Hilfsvariable 
 
-    temp = p1;
-    p1 = p2;
-    p2 = temp;
+    temp = *p1;
+    *p1 = *p2;
+    *p2 = temp;
+}
+
+void swapp(int& a, int& b)
+{
+    int temp = a;
+    a = b;
+    b = temp;
 }

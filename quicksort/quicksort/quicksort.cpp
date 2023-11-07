@@ -9,12 +9,14 @@
 #include <iostream>
 #include <ctime>
 #include <random>
+#include <algorithm>
 using namespace std;
 
 // Prototypen
 
 void quicksort(int array[], int erstesElement, int letztesElement);
 int partition(int array[], int erstesElement, int letztesElement);
+void bubbleSort(int array[], int erstesElement, int letztesElement);
 
 const int ANZAHL = 100000;    // Anzahl der Array-Elemente
 const int BEREICH = 10000;  // Wertebereich der Array-Elemente (beginnt mit 1)
@@ -22,12 +24,13 @@ const int BEREICH = 10000;  // Wertebereich der Array-Elemente (beginnt mit 1)
 int main()
 {
     int array[ANZAHL];
-
+    int array2[ANZAHL];
     // array mit Zufallszahlen füllen
 
     srand(time(NULL));
     for (int i = 0; i < ANZAHL; i++)
         array[i] = rand() % BEREICH + 1;
+    copy(begin(array), end(array), array2);
 
     // Anzeige des Arrays (zu Testzwecken, nur die letzten 100 Elemente)
 
@@ -45,6 +48,21 @@ int main()
         cout << array[i] << " ";
     cout << endl;
 
+    cout << endl << endl;
+    cout << "Array vor dem Bubblesort (Ausschnitt)" << endl;
+    for (int i = 99900; i < ANZAHL; i++)
+        cout << array2[i] << " ";
+    
+    bubbleSort(array2, 0, ANZAHL - 1);
+
+    cout << "Array nach dem Bubblesort (Ausschnitt)" << endl;
+    for (int i = 99900; i < ANZAHL; i++)
+        cout << array[i] << " ";
+    cout << endl;
+
+
+
+    cout << endl;
     return 0;
 }
 
@@ -91,4 +109,21 @@ int partition(int array[], int erstes, int letztes)
     array[letztes] = temp;
 
     return (i + 1);
+}
+
+void bubbleSort(int array[], int erstes, int letztes)
+{
+    for (int i = 0; i < (sizeof(array) / sizeof(array[0])); i++) 
+    {
+        for (int j = 0; j < (sizeof(array) / sizeof(array[0])) - i; i++)
+        {
+            if (array[j] > array[j + 1])
+            {
+                int temp = array[j];
+                array[j] = array[j + 1];
+                array[j + 1] = temp;
+            }
+        }
+    }
+
 }
