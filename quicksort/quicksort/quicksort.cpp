@@ -10,6 +10,7 @@
 #include <ctime>
 #include <random>
 #include <algorithm>
+#include <chrono>
 using namespace std;
 
 // Prototypen
@@ -27,37 +28,64 @@ int main()
     int array2[ANZAHL];
     // array mit Zufallszahlen füllen
 
+   // Array anlegen
     srand(time(NULL));
     for (int i = 0; i < ANZAHL; i++)
         array[i] = rand() % BEREICH + 1;
     copy(begin(array), end(array), array2);
 
-    // Anzeige des Arrays (zu Testzwecken, nur die letzten 100 Elemente)
-
+   
+    // Array kopieren fuer die zweite sortiermethode
     cout << "Array vor dem Quicksort (Ausschnitt)" << endl;
+
+
+    // Anzeige des Arrays vor dem sortieren
     for (int i = 99900; i < ANZAHL; i++)
         cout << array[i] << " ";
     cout << endl;
 
+    // quickstart stoppuhr
+    auto start = chrono::high_resolution_clock::now();
+    // quicksort stoppuhr GO
     quicksort(array, 0, ANZAHL - 1);
+    // quicksort stoppuhr STOP
+    auto stop = chrono::high_resolution_clock::now();
+    // quicksort quicksort stoppuhr dauer speichern
+    auto quicksort_duration = chrono::duration_cast<chrono::microseconds>(stop - start);
+    // quicksort quicksort stoppuhr dauer ausgeben
+    cout << endl << "Quicksort hat " << quicksort_duration.count() << " mikrosekunden gebraucht." << endl;
 
-    // Anzeige des Arrays (zu Testzwecken, nur die letzten 100 Elemente)
-
+    // Anzeige des Arrays nach dem quicksort
     cout << "Array nach dem Quicksort (Ausschnitt)" << endl;
     for (int i = 99900; i < ANZAHL; i++)
         cout << array[i] << " ";
     cout << endl;
 
     cout << endl << endl;
+
+
+    // Anzeige des Arrays vor dem sortieren
     cout << "Array vor dem Bubblesort (Ausschnitt)" << endl;
     for (int i = 99900; i < ANZAHL; i++)
         cout << array2[i] << " ";
+    cout << endl;
     
+    // bubblesort 1. timestop 
+    auto start2 = chrono::high_resolution_clock::now(); 
+    // bubbleSort 2. GO!
     bubbleSort(array2, 0, ANZAHL - 1);
+    // bubblesort 3. STOP
+    auto stop2 = chrono::high_resolution_clock::now();
+    // bubblesort 4. ???
+    auto bubblesort_duration = chrono::duration_cast<chrono::microseconds>(stop2 - start2);
+    // bubblesort 5. profit ☻
+    cout << endl << "Bubblesort hat " << bubblesort_duration.count() << " mikrosekunden gebraucht." << endl;
 
+
+    // Anzeige des Arrays nach dem bubblesort
     cout << "Array nach dem Bubblesort (Ausschnitt)" << endl;
     for (int i = 99900; i < ANZAHL; i++)
-        cout << array[i] << " ";
+        cout << array2[i] << " ";
     cout << endl;
 
 
@@ -113,9 +141,13 @@ int partition(int array[], int erstes, int letztes)
 
 void bubbleSort(int array[], int erstes, int letztes)
 {
-    for (int i = 0; i < (sizeof(array) / sizeof(array[0])); i++) 
+    // arrays werden zu pointern in funktionen?
+    // sizeof liefert die groesse des pointers nicht des arrays, daher werden auch hier der 2. und 3. parameter benoetigt
+    int anzahl = letztes - erstes - 1;
+
+    for (int i = 0; i < anzahl; i++) 
     {
-        for (int j = 0; j < (sizeof(array) / sizeof(array[0])) - i; i++)
+        for (int j = 0; j < anzahl - i; j++)
         {
             if (array[j] > array[j + 1])
             {
