@@ -30,6 +30,7 @@ int main()
 
     cout << endl << "Inhalt Datum1: " << endl;
     zeiger->display();
+    var.display();
     
 
 
