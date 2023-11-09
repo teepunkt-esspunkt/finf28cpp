@@ -28,7 +28,7 @@ public:			// öffentliche schnittstelle
 	
 	void init(unsigned int tag, unsigned int monat, unsigned int jahr);
 	void init(void);
-	void display(void);
+	void getDatum(void);
 
 };
 

@@ -35,7 +35,7 @@ void Datum::init(void) // Aktuelles Datum holen und
 }
 
 
-void Datum::display()
+void Datum::getDatum()
 {
     cout
         << "-------------------------------------------------------" << endl

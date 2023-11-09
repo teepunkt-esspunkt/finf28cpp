@@ -18,10 +18,10 @@ int main()
 
     
     datum1.init(5, 2, 1923);
-    datum1.display();
+    datum1.getDatum();
 
     datum2.init();
-    datum2.display();
+    datum2.getDatum();
 
     Datum* zeiger = &datum1;
     cout << "Speicheradresse Datum1: " << zeiger << endl;
@@ -29,8 +29,8 @@ int main()
     cout << &var << endl;
 
     cout << endl << "Inhalt Datum1: " << endl;
-    zeiger->display();
-    var.display();
+    zeiger->getDatum();
+    var.getDatum();
     
 
 
