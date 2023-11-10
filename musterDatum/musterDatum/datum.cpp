@@ -1,20 +1,83 @@
-// musterDatum.cpp : Diese Datei enthält die Funktion "main". Hier beginnt und endet die Ausführung des Programms.
-//
+/*
+* datum2.cpp
+*
+* Implementierung der Methoden der Klasse Datum,
+* die nicht schon inline definiert sind.
+*
+*/
 
+#pragma warning(disable : 4996)	// Fehlermeldung bei
+// localtime() unterdÃ¼cken
 #include <iostream>
+#include <sstream>
+#include <iomanip>
+#include <string>
+#include <ctime>
+#include "datum.h"
+using namespace std;
 
-int main()
-{
-    std::cout << "Hello World!\n";
+void Datum::setDatum()      // Aktuelles Datum holen und 
+{                           // den Datenelementen zuweisen.
+    struct tm* zeit;        // Zeiger auf Struktur tm.
+    time_t sec;             // FÃ¼r die Sekunden. 
+
+    time(&sec);             // Aktuelle Zeit holen.
+    zeit = localtime(&sec); // Eine Struktur vom Typ tm initialisieren
+    // und Zeiger darauf zurÃ¼ckgeben.
+    tag = zeit->tm_mday;
+    monat = zeit->tm_mon + 1;
+    jahr = zeit->tm_year + 1900;
 }
 
-// Programm ausführen: STRG+F5 oder Menüeintrag "Debuggen" > "Starten ohne Debuggen starten"
-// Programm debuggen: F5 oder "Debuggen" > Menü "Debuggen starten"
+bool Datum::setDatum(int tag, int monat, int jahr)
+{
+    if (tag < 1 || tag > 31) return false;
+    if (monat < 1 || monat > 12) return false;
 
-// Tipps für den Einstieg: 
-//   1. Verwenden Sie das Projektmappen-Explorer-Fenster zum Hinzufügen/Verwalten von Dateien.
-//   2. Verwenden Sie das Team Explorer-Fenster zum Herstellen einer Verbindung mit der Quellcodeverwaltung.
-//   3. Verwenden Sie das Ausgabefenster, um die Buildausgabe und andere Nachrichten anzuzeigen.
-//   4. Verwenden Sie das Fenster "Fehlerliste", um Fehler anzuzeigen.
-//   5. Wechseln Sie zu "Projekt" > "Neues Element hinzufügen", um neue Codedateien zu erstellen, bzw. zu "Projekt" > "Vorhandenes Element hinzufügen", um dem Projekt vorhandene Codedateien hinzuzufügen.
-//   6. Um dieses Projekt später erneut zu öffnen, wechseln Sie zu "Datei" > "Öffnen" > "Projekt", und wählen Sie die SLN-Datei aus.
+    switch (monat)       // Monate mit weniger als 31 Tagen
+    {
+    case 2:  if (isLeapYear(jahr))
+    {
+        if (tag > 29)
+            return false;
+    }
+          else if (tag > 28)
+    {
+        return false;
+    }
+          break;
+    case 4:
+    case 6:
+    case 9:
+    case 11: if (tag > 30)
+    {
+        return false;
+    }
+    }
+
+    this->tag = tag;
+    this->monat = monat;
+    this->jahr = jahr;
+
+    return true;
+}
+
+void Datum::display() const              // Datum anzeigen
+{
+    cout << asString() << endl;
+    return;
+}
+
+const string& Datum::asString() const  // Datum als String
+{                                      // zurÃ¼ckgeben.
+    static string datumString;
+    stringstream iostream;         // Zur Konvertierung Zahl -> String
+    // und Formatierung.
+    iostream << setfill('0')
+        << setw(2) << tag << '.'
+        << setw(2) << monat << '.'
+        << setw(4) << jahr;
+
+    iostream >> datumString;
+    return datumString;
+}
