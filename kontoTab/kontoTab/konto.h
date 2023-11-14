@@ -51,10 +51,7 @@ public:			// öffentliche schnittstelle
 
 
 	inline void display();
-
 	static int getAnzahl() { return Konto::anzahl; }
-
-
 	~Konto(void);
 
 };
