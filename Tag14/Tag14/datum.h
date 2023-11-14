@@ -1,13 +1,14 @@
 /*
-* datum.h
-*
-* Zweite Definition der Klasse Datum
-* mit verbesserter Funktionalität, z.B. Bereichsprüfung
-*
-*/
+ * datum.h
+ * Teil des C++-Projekts "Verein"
+ * Definition der Klasse "Datum" mit Inline-Methoden
+ * Autor: Ralf Sasse
+ * Datum: 13.11.2023 (FINF28 / Tag 14)
+ *
+ */
 
-#ifndef _DATUM_   // Mehrfaches Inkludieren verhindern.
-#define _DATUM_
+#ifndef _DATUM_H_   // Mehrfaches Inkludieren verhindern. // anstelle von pragma once
+#define _DATUM_H_
 
 #include <string>
 using namespace std;
@@ -18,17 +19,20 @@ private:
     int tag, monat, jahr;
 
 public:
-    Datum()                        // Default-Konstruktor
+    Datum()                                 // Default-Konstruktor
     {
         tag = monat = jahr = 1;
     }
-    Datum(int tag, int monat, int jahr)   // Konstruktor
+
+    Datum(int tag, int monat, int jahr)     // Parameter-Konstruktor
     {
         if (!setDatum(tag, monat, jahr))    // Falls Datum ungültig.
-            tag = monat = jahr = 1;
+        {
+            this->tag = this->monat = this->jahr = 1;
+        }
     }
 
-    void setDatum();   // Setzt das aktuelle Datum
+    void setDatum();    // Setzt das aktuelle Datum
     bool setDatum(int tag, int monat, int jahr);
 
     int getTag()   const { return tag; }
@@ -50,7 +54,7 @@ public:
     }
 
     const string& asString() const;
-    void display(void) const;
+    void display() const;
 };
 
 inline bool Datum::isLess(const Datum& d) const
@@ -73,4 +77,4 @@ inline bool Datum::isGreater(const Datum& d) const
         return tag > d.tag;
 }
 
-#endif   //  _DATUM_
+#endif   //  _DATUM_H_
