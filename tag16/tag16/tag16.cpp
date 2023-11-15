@@ -7,11 +7,20 @@
  */
 
 #include <iostream>
+#include "form.h"
+#include "quadrat.h"
+#include "kreis.h"
+
 using namespace std;
 
 int main()
 {
-    cout << "Hello World!" << endl;
+    Quadrat q1(5);
+    Kreis k1(5);
+    cout << "Quadrat: ";
+    q1.display();
+    cout << "Kreis: ";
+    k1.display();
 
     return 0;
 

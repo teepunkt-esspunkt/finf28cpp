@@ -12,17 +12,22 @@
 #include "form.h"
 using namespace std;
 
-class Quadrat
+class Quadrat : public Form
 {
 private:
 	double seitenlaenge;
 public:
 	Quadrat(double s)
+		: Form(s*s, s*4)
 	{
 		seitenlaenge = s;
-		flaeche = seitenlaenge * seitenlaenge;
-		umfang = seitenlaenge * 4;
+		
 
+	}
+	void display() const
+	{
+		Form::display();
+		cout << "Seitenlaenge: " << seitenlaenge << endl << endl;
 	}
 };
 

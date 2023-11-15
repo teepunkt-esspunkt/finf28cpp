@@ -23,6 +23,11 @@ public:
 
 	}
 
+	void display() const
+	{
+		cout << "Flaeche :" << flaeche << ", Umfang: " << umfang << endl;
+	}
+
 };
 
 
