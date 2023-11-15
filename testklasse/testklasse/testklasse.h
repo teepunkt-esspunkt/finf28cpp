@@ -7,6 +7,7 @@
  */
 
 #pragma once
+using namespace std;
 
 class Testklasse
 {
@@ -28,7 +29,7 @@ public:
 
 	Testklasse(int i) // Konstruktor mit Parameter
 	{
-		variable = i;
+		setVariable(i);
 		anzahl++;
 	}
 
@@ -56,7 +57,18 @@ public:
 	}
 	void setVariable(int i) // kein const! kann nicht auf konstante objekte angewendet werden (deshalb kein const)	
 	{						// weil sie daten im objekt ändert
-		variable = i;
+		if (i == 42)
+		{
+			cout << "unerlaubte zahl" << endl;
+			cout << "stattdessen: 137" << endl;
+			variable = 137;
+		}
+		else 
+		{
+			variable = i;
+			cout << "ok war keine 42" << endl;
+		}
+		
 	}
 
 	~Testklasse()		//Destruktor (es kann nur einen geben!)

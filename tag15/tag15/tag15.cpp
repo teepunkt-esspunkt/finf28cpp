@@ -109,15 +109,15 @@ void sortG(Mitglied* mitzeig[])
 ////a) 
 //for (pv = v; pv <= v + 3; pv++)
 //cout << " *pv = " << *pv;
-//// *pv = 10 *pv = 40 *p = // out of bounds oder was sich in einer speicheradresse so befindet(??)
+//// *pv = 10 *pv = 40 *p = // out of bounds oder was sich in einer speicheradresse so befindet(??) // wrong, *pv = 10 *pv = 20 *pv = 30 *pv = 40
 ////b) 
 //for (pv = v, i = 1; i <= 3; i++)
 //cout << " pv[i] = " << pv[i];
-//// pv[i] = 10 pv[i] = 20 pv[i] = 30 pv[i] = 40
+//// pv[i] = 10 pv[i] = 20 pv[i] = 30 pv[i] = 40 // wrong, *pv = 20 *pv = 30 *pv = 40
 ////c) 
 //for (pv = v, i = 0; pv + i <= &v[3]; pv++, i++)
 //cout << " *(pv + i) = " << *(pv + i);
-//// *(pv +i) = 10 *pv = 30, *pv = ... // die inhalte anderer speicheradressen(??)
+//// *(pv +i) = 10 *pv = 30, *pv = ... // die inhalte anderer speicheradressen(??) // nur 10 30
 ////d) 
 //for (pv = v + 3; pv >= v; --pv)
 //cout << " v[" << (pv – v) << "] = " << v[pv – v];

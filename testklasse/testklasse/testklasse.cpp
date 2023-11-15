@@ -39,17 +39,21 @@ int main()
     funktion();
     cout << "Anzahl der Objekte: " << Testklasse::getAnzahl() << endl; // 4 
 
+    funktion();
+
     return 0;
 
 }
 
 void funktion()
 {
-    Testklasse lokalesObjekt(99);
+    static Testklasse lokalesObjekt(99);
     cout << "Start der funktion()" << endl;
     cout << "Inhalt der Variable von lokalesObjekt: " << lokalesObjekt.getVariable() << endl;
     cout << "Anzahl der Objekte: " << Testklasse::getAnzahl() << endl;
     cout << "Ende der funktion()" << endl;
+
+    lokalesObjekt.setVariable(64);
 
     return;
 }
