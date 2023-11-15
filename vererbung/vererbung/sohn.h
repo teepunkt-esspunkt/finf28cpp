@@ -26,6 +26,8 @@ public:
 	{
 
 	}
+	void setTaschengeld(int t) { taschengeld = t; return; }
+	int getTaschengeld() const { return taschengeld; }
 	void display() const
 	{
 		cout << "Name: " << Vater::getName() 

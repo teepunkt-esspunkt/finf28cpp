@@ -1,8 +1,8 @@
 /*
- * tag16.cpp
+ * kreis.h
  * Programm Bechreibung
  * Autor: Tarek Saleh
- * Datum: 15.11.2023
+ * Datum: xx
  *
  */
 
@@ -17,3 +17,5 @@ int main()
 
 }
 
+
+#pragma once

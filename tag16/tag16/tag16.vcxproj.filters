@@ -19,4 +19,15 @@
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="form.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="kreis.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="quadrat.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+  </ItemGroup>
 </Project>

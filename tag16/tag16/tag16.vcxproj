@@ -129,6 +129,11 @@
   <ItemGroup>
     <ClCompile Include="tag16.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="form.h" />
+    <ClInclude Include="kreis.h" />
+    <ClInclude Include="quadrat.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

@@ -21,6 +21,8 @@ int main()
     sohn1.display();
     sohn2.display();
 
+    sohn1.setTaschengeld(60);
+    sohn1.setKontostand(260);
     return 0;
 
 }
