@@ -22,7 +22,7 @@ public:
 
 	Quadrat(double s)			// Konstruktor
 
-		: Rechteck(s * s, s * 4), seitenlaenge(s)
+		: Rechteck(s, s), seitenlaenge(s)
 	{
 	}
 
