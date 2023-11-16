@@ -29,5 +29,8 @@
     <ClInclude Include="quadrat.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="rechteck.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

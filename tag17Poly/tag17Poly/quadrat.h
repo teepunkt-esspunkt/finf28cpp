@@ -12,7 +12,7 @@
 #include <iostream>
 using namespace std;
 
-class Quadrat : public Form
+class Quadrat : public Rechteck
 {
 private:
 
@@ -22,7 +22,7 @@ public:
 
 	Quadrat(double s)			// Konstruktor
 
-		: Form(s* s, s * 4), seitenlaenge(s)
+		: Rechteck(s * s, s * 4), seitenlaenge(s)
 	{
 	}
 

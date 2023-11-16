@@ -8,6 +8,7 @@
 
 #include <iostream>
 #include "form.h"
+#include "rechteck.h"
 #include "kreis.h"
 #include "quadrat.h"
 
@@ -26,13 +27,17 @@ int main()
 
 	for (int i = 0; i < ANZAHL; i++)
 	{
-		if (i % 2)
+		if (i % 3 == 0)
 		{
 			array[i] = new Kreis(i + 1);
 		}
-		else
+		else if (i % 3 == 1)
 		{
 			array[i] = new Quadrat(i + 1);
+		}
+		else
+		{
+			array[i] = new Rechteck(i * 1, (i+2) / 2);
 		}
 	}
 
