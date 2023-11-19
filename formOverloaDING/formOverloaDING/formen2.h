@@ -10,6 +10,9 @@
 #define _FORMEN_H_
 
 #include <iostream>
+#include <cmath>
+#include <string>
+
 using namespace std;
 
 const double PI = 3.14159;
@@ -45,18 +48,51 @@ public:
 		return;
 	}
 	// warum nicht über setter..?
-	Form& operator+(Form& f)
+	Form operator+(Form& f) const
 	{
-		this->name; //
+		Form resultat(*this);
+		//resultat.namenRechnen(f);
+		resultat.setName(namenRechnen(f));
+		resultat.flaeche += f.flaeche;
+		resultat.umfang += f.umfang;
+		//this->namenRechnen(f);
+		//this->flaeche += f.flaeche;
+		//this->umfang += f.umfang;
 
-
-		this->flaeche += f.flaeche;
-		this->umfang += f.umfang;
-
-		return *this;	// Rückgabe, wenn der Operator deni ch grade überlade das Objekt verändert
-
+		//return *this;	// Rückgabe, wenn der Operator deni ch grade überlade das Objekt verändert
+		return resultat;
 
 	}
+
+	string namenRechnen(const Form& f) const
+	{
+		string neuerName;
+		for (int i = 0; i < min(this->name.length(), f.name.length()); i++)
+		{
+			int buchstabenWert1 = this->name[i] - 'a' + 1;
+			int buchstabenWert2 = f.name[i] - 'a' + 1;
+			//int buchstabenWert2 = f2.name[i] - 'a' + 1;
+
+			int ergebnis = (buchstabenWert1 + buchstabenWert2 - 1) % 26 + 1; 
+			char ergebnisBuchstabe = 'a' + ergebnis - 1; 
+			neuerName += ergebnisBuchstabe;
+		
+		};
+		for (int i = min(this->name.length(), f.name.length()); i < max(this->name.length(), f.name.length()); i++)
+		{
+			if (this->name.length() > f.name.length())
+			{
+				neuerName += this->name[i];
+			}
+			else 
+			{
+				neuerName += f.name[i];
+			}
+		}
+		return(neuerName);
+	}
+
+
 };
 
 

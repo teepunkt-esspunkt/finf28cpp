@@ -35,15 +35,15 @@ int main()
 	neuerKreis++;
 	neuerKreis.display();
 
-	Form X = kreis + rechteck;
-	X.display();
+	Form kreisY = kreis + rechteck; 
+	kreisY.display();
 
-	char a = 'a';
-	char b = 'b';
+	kreis.display();
+	Form x = kreis + quadrat;
+	x.display();
+	kreis.display();
+	x = kreis + rechteck;
 
-	char c = a + b;
-
-	cout << c << endl;
 
 	return 0;
 }
