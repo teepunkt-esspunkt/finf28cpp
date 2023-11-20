@@ -47,7 +47,7 @@ public:
 		cout << "Umfang:  " << umfang << endl;
 		return;
 	}
-	// warum nicht über setter..?
+	
 	Form operator+(Form& f) const
 	{
 		Form resultat(*this);
