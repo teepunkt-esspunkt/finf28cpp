@@ -42,10 +42,10 @@ int main()
 	}
 	for (int i = 0; i < dieHaeufigsten.size(); i++)
 	{
-		zahlen += to_string(dieHaeufigsten[i]) + " ";
+		zahlen += to_string(dieHaeufigsten[i]) + ". ";
 	}
 	
 
-	cout << zahlen << ". " << max << " mal" << endl;
+	cout << zahlen << ": " << max << " mal" << endl;
 
 }
